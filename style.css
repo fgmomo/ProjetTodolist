@@ -1,238 +1,249 @@
-:root {
-    --couleur-background: #f5f5f5;
-    --couleur-principale: #1400ff;
-    --taille-titre-principal: 20px;
-    --radius: 3px;
-    --ombre: 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
-
-body {
-    background-color: var(--couleur-background);
-    margin: 0;
-    padding: 0;
-}
-
-footer {
-    width: 100%;
-    background-color: #fff;
-    text-align: center;
-    padding: 3px;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    /* Assurez-vous que le footer est aligné à gauche */
-    margin: 0;
-    /* Réinitialiser les marges */
-}
-
-.bi {
-    font-size: 22px;
-    cursor: pointer;
-    font-weight: bold;
-}
-
-.bi-pencil-square {
-    color: #1400ff;
-    margin-right: 3px;
-}
-
-.bi-trash3 {
-    color: #ff0000;
-}
-
-header {
-    margin-bottom: 20px;
-    width: 100%;
-    height: 45px;
-    box-shadow: var(--ombre);
-}
-
-.navbar {
-    background: var(--couleur-principale);
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.right {
-    margin-right: 30px;
-}
-
-.left {
-    margin-left: 30px;
-}
-
-.right h1,
-.left h1 {
-    font-size: var(--taille-titre-principal);
-    color: white;
-}
-
-.main-container {
-    margin: 0 60px;
-}
-
-
-/* INPUT BLOG */
-
-.form-container {
-    display: flex;
-    flex-direction: column;
-}
-
-.input-container {
-    margin-top: 45px;
-    margin-bottom: 15px;
-}
-
-select {
-    border: none;
-}
-
-input,
-select {
-    box-shadow: var(--ombre);
-    border-radius: var(--radius);
-}
-
-input:focus {
-    outline: none;
-    border-color: #fff;
-}
-
-input[type="checkbox"] {
-    height: 25px;
-    width: 25px;
-    border-radius: 50px;
-}
-
-input[type="text"] {
-    height: 35px;
-    width: 240px;
-}
-
-input[type="date"],
-select {
-    height: 35px;
-    width: 140px;
-}
-
-input[type="number"] {
-    height: 35px;
-    width: 40px;
-}
-
-input[type="submit"] {
-    height: 35px;
-    width: 80px;
-    border: none;
-    background-color: var(--couleur-principale);
-    color: white;
-    cursor: pointer;
-}
-
-.tache-input,
-.echeance-input,
-.priorite-input {
-    border: 1px solid #ffffff;
-}
-
-.tache-list {
-    display: flex;
-    flex-direction: column;
-}
-
-.tache-details {
-    display: flex;
-    flex-direction: column;
-    align-content: space-between;
-    margin-top: 20px;
-}
-
-.tache-details p {
-    font-size: 12px;
-}
-
-.tache-details .priori {
-    margin-bottom: 30px;
-}
-
-.tache-status {
-    display: flex;
-    align-items: center;
-}
-
-.tache-container h2 {
-    display: flex;
-}
-
-.tache-details p {
-    margin-top: -19px;
-}
-
-.tache-item {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    /* height: 30px; */
-    background-color: #fff;
-    box-shadow: var(--ombre);
-    justify-content: space-between;
-    margin-bottom: 15px;
-    align-items: center;
-    padding: 0 10px;
-}
-
-.tache-actions {
-    display: flex;
-    align-items: center;
-}
-
-.tache-title {
-    display: flex;
-    align-items: center;
-}
-
-
-/* FORMAT TABLETTE */
-
-@media screen and (max-width: 1024px) {
-    .tache-item {
-        display: flex;
-        flex-direction: row;
-        width: 100%;
-        height: 50px;
-    }
-    .tache-actions {
-        display: flex;
-        align-items: center;
-    }
-    .main-container {
-        margin: 0 30px;
-    }
-}
-
-@media screen and (max-width: 750px) {
-    /* header{
+                                                                   :root {
+                                                                      --couleur-background: #f5f5f5;
+                                                                      --couleur-principale: #1400ff;
+                                                                      --taille-titre-principal: 20px;
+                                                                      --radius: 3px;
+                                                                      --ombre: 0px 4px 4px rgba(0, 0, 0, 0.25);
+                                                                  }
+                                                                  
+                                                                  body {
+                                                                      background-color: var(--couleur-background);
+                                                                      margin: 0;
+                                                                      padding: 0;
+                                                                  }
+                                                                  
+                                                                  footer {
+                                                                      width: 100%;
+                                                                      background-color: #fff;
+                                                                      text-align: center;
+                                                                      padding: 3px;
+                                                                      position: fixed;
+                                                                      bottom: 0;
+                                                                      left: 0;
+                                                                      /* Assurez-vous que le footer est aligné à gauche */
+                                                                      margin: 0;
+                                                                      /* Réinitialiser les marges */
+                                                                  }
+                                                                  
+                                                                  .bi {
+                                                                      font-size: 22px;
+                                                                      cursor: pointer;
+                                                                      font-weight: bold;
+                                                                  }
+                                                                  
+                                                                  .bi-pencil-square {
+                                                                      color: #1400ff;
+                                                                      margin-right: 3px;
+                                                                  }
+                                                                  
+                                                                  .bi-trash3 {
+                                                                      color: #ff0000;
+                                                                  }
+                                                                  
+                                                                  header {
+                                                                      margin-bottom: 20px;
+                                                                      width: 100%;
+                                                                      height: 45px;
+                                                                      box-shadow: var(--ombre);
+                                                                  }
+                                                                  
+                                                                  .navbar {
+                                                                      background: var(--couleur-principale);
+                                                                      display: flex;
+                                                                      flex-direction: row-reverse;
+                                                                      justify-content: space-between;
+                                                                      align-items: center;
+                                                                  }
+                                                                  
+                                                                  .right {
+                                                                      margin-right: 30px;
+                                                                  }
+                                                                  
+                                                                  .left {
+                                                                      margin-left: 30px;
+                                                                  }
+                                                                  
+                                                                  .right h1,
+                                                                  .left h1 {
+                                                                      font-size: var(--taille-titre-principal);
+                                                                      color: white;
+                                                                  }
+                                                                  
+                                                                  .main-container {
+                                                                      margin: 0 55px 0 35px;
+                                                                      /* margin: 0a uto; */
+                                                                  }
+                                                                  /* INPUT BLOG */
+                                                                  
+                                                                  .form-container {
+                                                                      display: flex;
+                                                                      flex-direction: column;
+                                                                  }
+                                                                  
+                                                                  .input-container {
+                                                                      margin-top: 45px;
+                                                                      margin-bottom: 15px;
+                                                                  }
+                                                                  
+                                                                  select {
+                                                                      border: none;
+                                                                  }
+                                                                  
+                                                                  input,
+                                                                  select {
+                                                                      box-shadow: var(--ombre);
+                                                                      border-radius: var(--radius);
+                                                                  }
+                                                                  
+                                                                  input:focus {
+                                                                      outline: none;
+                                                                      border-color: #fff;
+                                                                  }
+                                                                  
+                                                                  input[type="checkbox"] {
+                                                                      height: 25px;
+                                                                      width: 25px;
+                                                                      border-radius: 50px;
+                                                                  }
+                                                                  
+                                                                  input[type="text"] {
+                                                                      height: 35px;
+                                                                      width: 240px;
+                                                                  }
+                                                                  
+                                                                  input[type="date"],
+                                                                  select {
+                                                                      height: 35px;
+                                                                      width: 140px;
+                                                                  }
+                                                                  
+                                                                  input[type="number"] {
+                                                                      height: 35px;
+                                                                      width: 40px;
+                                                                  }
+                                                                  
+                                                                  .submit {
+                                                                      height: 35px;
+                                                                      width: 80px;
+                                                                      border: none;
+                                                                      background-color: var(--couleur-principale);
+                                                                      color: white;
+                                                                      cursor: pointer;
+                                                                  }
+                                                                  
+                                                                  .tache-input,
+                                                                  .echeance-input,
+                                                                  .priorite-input {
+                                                                      border: 1px solid #ffffff;
+                                                                  }
+                                                                  
+                                                                  .tache-list {
+                                                                      display: flex;
+                                                                      flex-direction: column;
+                                                                  }
+                                                                  
+                                                                  .tache-details {
+                                                                      display: flex;
+                                                                      flex-direction: column;
+                                                                      align-content: space-between;
+                                                                      margin-top: 20px;
+                                                                  }
+                                                                  
+                                                                  .tache-details p {
+                                                                      font-size: 12px;
+                                                                  }
+                                                                  
+                                                                  .tache-details .priori {
+                                                                      margin-bottom: 30px;
+                                                                  }
+                                                                  
+                                                                  .tache-status {
+                                                                      display: flex;
+                                                                      align-items: center;
+                                                                  }
+                                                                  
+                                                                  .tache-container h2 {
+                                                                      display: flex;
+                                                                  }
+                                                                  
+                                                                  .tache-details p {
+                                                                      margin-top: -19px;
+                                                                  }
+                                                                  
+                                                                  .tache-item {
+                                                                      display: flex;
+                                                                      flex-direction: row;
+                                                                      width: 100%;
+                                                                      /* height: 30px; */
+                                                                      background-color: #fff;
+                                                                      box-shadow: var(--ombre);
+                                                                      justify-content: space-between;
+                                                                      margin-bottom: 15px;
+                                                                      align-items: center;
+                                                                      padding: 0 10px;
+                                                                  }
+                                                                  
+                                                                  .tache-actions {
+                                                                      display: flex;
+                                                                      align-items: center;
+                                                                  }
+                                                                  
+                                                                  .tache-title {
+                                                                      display: flex;
+                                                                      align-items: center;
+                                                                  }
+                                                                  /* FORMAT TABLETTE */
+                                                                  
+                                                                  @media screen and (max-width: 1024px) {
+                                                                      .tache-item {
+                                                                          display: flex;
+                                                                          flex-direction: row;
+                                                                          width: 100%;
+                                                                          height: 50px;
+                                                                      }
+                                                                      .tache-actions {
+                                                                          display: flex;
+                                                                          align-items: center;
+                                                                      }
+                                                                      .main-container {
+                                                                          margin: 0 55px 0 35px;
+                                                                      }
+                                                                  }
+                                                                  
+                                                                  @media screen and (max-width: 750px) {
+                                                                      /* header{
     width: 100%;
   } */
-    h3 {
-        font-size: 12px;
-    }
-    .tache-item {
-        display: flex;
-        flex-direction: row;
-        width: 100%;
-        height: 50px;
-    }
-    .tache-actions {
-        display: flex;
-        align-items: center;
-    }
-    input[type="checkbox"] {
-        height: 15px;
-        width: 15px;
-        border-radius: 50px;
-    }
-}
+                                                                      .input-container {
+                                                                          display: flex;
+                                                                          flex-direction: column;
+                                                                          margin-top: 45px;
+                                                                          margin-bottom: 15px;
+                                                                      }
+                                                                      .main-container {
+                                                                          margin: 0 40px 0 20px;
+                                                                          /* justify-content: space-around; */
+                                                                      }
+                                                                      .tache-input,
+                                                                      .echeance-input {
+                                                                          margin-bottom: 10px;
+                                                                      }
+                                                                      h3 {
+                                                                          font-size: 12px;
+                                                                      }
+                                                                      .tache-item {
+                                                                          display: flex;
+                                                                          flex-direction: row;
+                                                                          width: 100%;
+                                                                          height: 50px;
+                                                                      }
+                                                                      .tache-actions {
+                                                                          display: flex;
+                                                                          align-items: center;
+                                                                      }
+                                                                      input[type="checkbox"] {
+                                                                          height: 15px;
+                                                                          width: 15px;
+                                                                          border-radius: 50px;
+                                                                      }
+                                                                  }
