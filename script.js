@@ -34,6 +34,9 @@ function validateForm() {
     tacheStatus.classList.add("tache-status");
     let checkbox = document.createElement("input");
     checkbox.type = "checkbox";
+    checkbox.setAttribute('onchange', 'completeTache(this)')
+        // checkbox.innerHTML = " <input type='checkbox' onchange='completeTache(this)'>";
+
     tacheStatus.appendChild(checkbox);
 
     // Créer le conteneur pour les boutons d'action
@@ -42,7 +45,7 @@ function validateForm() {
     let pencilIcon = document.createElement("p");
     pencilIcon.innerHTML = "<i class='bi bi-pencil-square'></i>";
     let trashIcon = document.createElement("p");
-    trashIcon.innerHTML = "<i class='bi bi-trash3'></i>";
+    trashIcon.innerHTML = "<i class='bi bi-trash3' onclick='deleteTask(this)'></i>";
     tacheActions.appendChild(pencilIcon);
     tacheActions.appendChild(trashIcon);
 
@@ -51,7 +54,7 @@ function validateForm() {
     tacheItem.classList.add("tache-item");
     tacheItem.appendChild(tacheStatus);
     tacheItem.appendChild(ache3);
-    tacheItem.appendChild(detailsDiv); // Ajouter les détails de la tâche
+    tacheItem.appendChild(detailsDiv);
     tacheItem.appendChild(tacheActions);
 
     // Ajouter le conteneur de la tâche à la liste des tâches
@@ -62,6 +65,23 @@ function validateForm() {
     document.forms["myForm"]["tache"].value = "";
     document.forms["myForm"]["date"].value = "";
     document.forms["myForm"]["priori"].value = "";
-
     // return false; // Empêcher la soumission du formulaire
+
+
+}
+
+function completeTache(checkbox) {
+    let taskItem = checkbox.closest('.tache-item');
+    if (checkbox.checked) {
+        taskItem.classList.add('completed')
+    } else {
+        taskItem.classList.remove('completed')
+    }
+}
+
+
+function deleteTask(icon) {
+    // Récupère l'élément parent de l'icône de suppression (c'est-à-dire la div "tache-item")
+    let taskItem = icon.closest('.tache-item');
+    taskItem.remove();
 }
