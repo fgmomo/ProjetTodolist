@@ -4,7 +4,7 @@ function validateForm() {
     let priori = document.forms["myForm"]["priori"].value;
 
     // Vérifier si tous les champs sont remplis
-    if (tache === "" || date === "" || priori === "") {
+    if (tache === "" || date === "" || priori === "")  {
         alert("Tous les champs doivent être remplis");
         return false; // Empêcher la soumission du formulaire
     }
@@ -34,19 +34,17 @@ function validateForm() {
     tacheStatus.classList.add("tache-status");
     let checkbox = document.createElement("input");
     checkbox.type = "checkbox";
-    checkbox.setAttribute('onchange', 'completeTache(this)')
-        // checkbox.innerHTML = " <input type='checkbox' onchange='completeTache(this)'>";
-
+    checkbox.setAttribute('onchange', 'completeTache(this)');
     tacheStatus.appendChild(checkbox);
 
     // Créer le conteneur pour les boutons d'action
     let tacheActions = document.createElement("div");
     tacheActions.classList.add("tache-actions");
-    let pencilIcon = document.createElement("p");
-    pencilIcon.innerHTML = "<i class='bi bi-pencil-square'></i>";
+    // let pencilIcon = document.createElement("p");
+    // pencilIcon.innerHTML = "<i class='bi bi-pencil-square'></i>";
     let trashIcon = document.createElement("p");
     trashIcon.innerHTML = "<i class='bi bi-trash3' onclick='deleteTask(this)'></i>";
-    tacheActions.appendChild(pencilIcon);
+    // tacheActions.appendChild(pencilIcon);
     tacheActions.appendChild(trashIcon);
 
     // Créer le conteneur de la tâche
@@ -58,30 +56,56 @@ function validateForm() {
     tacheItem.appendChild(tacheActions);
 
     // Ajouter le conteneur de la tâche à la liste des tâches
-    let tacheList = document.querySelector(".tache-list");
+    const tacheList = document.querySelector(".tache-list");
     tacheList.appendChild(tacheItem);
+    saveData(); // Sauvegarder les données
 
     // Effacer les champs du formulaire après la soumission
     document.forms["myForm"]["tache"].value = "";
     document.forms["myForm"]["date"].value = "";
     document.forms["myForm"]["priori"].value = "";
-    // return false; // Empêcher la soumission du formulaire
-
-
 }
+
+function saveData() {
+    const tacheList = document.querySelector(".tache-list");
+    localStorage.setItem("data", tacheList.innerHTML);
+
+    // Enregistrer l'état de chaque case à cocher
+    let checkboxes = document.querySelectorAll('.tache-item input[type="checkbox"]');
+    let checkboxStates = [];
+    checkboxes.forEach(function(checkbox) {
+        checkboxStates.push(checkbox.checked);
+    });
+    localStorage.setItem("checkboxStates", JSON.stringify(checkboxStates));
+}
+
+function showData() {
+    const tacheList = document.querySelector(".tache-list");
+    tacheList.innerHTML = localStorage.getItem("data");
+
+    // Récupérer et appliquer l'état de chaque case à cocher
+    let checkboxStates = JSON.parse(localStorage.getItem("checkboxStates"));
+    if (checkboxStates) {
+        let checkboxes = document.querySelectorAll('.tache-item input[type="checkbox"]');
+        checkboxes.forEach(function(checkbox, index) {
+            checkbox.checked = checkboxStates[index];
+        });
+    }
+}
+showData();
 
 function completeTache(checkbox) {
     let taskItem = checkbox.closest('.tache-item');
     if (checkbox.checked) {
-        taskItem.classList.add('completed')
+        taskItem.classList.add('completed');
     } else {
-        taskItem.classList.remove('completed')
+        taskItem.classList.remove('completed');
     }
+    saveData(); // Sauvegarder les données à chaque changement
 }
 
-
 function deleteTask(icon) {
-    // Récupère l'élément parent de l'icône de suppression (c'est-à-dire la div "tache-item")
     let taskItem = icon.closest('.tache-item');
     taskItem.remove();
+    saveData(); // Sauvegarder les données après la suppression
 }
